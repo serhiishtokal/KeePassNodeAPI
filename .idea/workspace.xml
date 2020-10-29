@@ -15,33 +15,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/node-js-jwt-auth-master.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/auth.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/db.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/auth.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/user.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middleware/authJwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middleware/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middleware/verifySignUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/role.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/user.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/auth.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/user.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+    <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/swagger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/db.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/auth.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,9 +47,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/swagger.js" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Node.js.swagger">
+    <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="swagger" type="NodeJSConfigurationType" path-to-js-file="swagger.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.server.js" />
+      <item itemvalue="Node.js.swagger" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -67,8 +72,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603832127827</updated>
-      <workItem from="1603832128924" duration="1872000" />
+      <workItem from="1603832128924" duration="4997000" />
+      <workItem from="1603841685962" duration="3568000" />
+      <workItem from="1603883295873" duration="1594000" />
+      <workItem from="1603970658404" duration="3146000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1603835186931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603835186931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,27 +100,56 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1603834710302">
+    <state x="714" y="344" key="#Notifications" timestamp="1603893885820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603834710302" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1603832214227">
+    <state x="714" y="344" key="#Notifications/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603893885820" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603843674347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603832214227" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1603832214226">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603843674347" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1603977566969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603832214226" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1603832214225">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603977566969" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1603843667524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603832214225" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1603832214226">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603843667524" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1603845289693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603832214226" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1603845289693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1603845289692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289692" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1603845289693">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
+    <state x="-1151" y="29" key="SettingsEditor" timestamp="1603894077691">
+      <screen x="-1304" y="0" width="1304" height="768" />
+    </state>
+    <state x="-1151" y="29" key="SettingsEditor/0.0.1920.1040/-1304.0.1304.768@-1304.0.1304.768" timestamp="1603894077691" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603835655358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603835655358" />
+    <state x="656" y="364" key="git4idea.ui.GitTagDialog" timestamp="1603835508195">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="364" key="git4idea.ui.GitTagDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603835508195" />
   </component>
 </project>
