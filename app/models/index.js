@@ -9,6 +9,9 @@ const sequelize = new Sequelize(
     host: config.HOST,
     dialect: config.dialect,
     operatorsAliases: false,
+    define: {
+      timestamps: false
+    },
 
     pool: {
       max: config.pool.max,
@@ -26,17 +29,29 @@ db.sequelize = sequelize;
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.entry = require("../models/entry.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
-  foreignKey: "roleId",
-  otherKey: "userId"
+  foreignKey: "role_id",
+  otherKey: "user_id"
 });
 db.user.belongsToMany(db.role, {
   through: "user_roles",
-  foreignKey: "userId",
-  otherKey: "roleId"
+  foreignKey: "user_id",
+  otherKey: "role_id"
 });
+
+db.user.hasMany(db.entry, {
+    foreignKey: "user_id",
+    as: "entries"
+});
+db.entry.belongsTo(db.user,{
+    foreignKey: "user_id",
+    as: "user"
+});
+
+
 
 db.ROLES = ["user", "admin", "moderator"];
 

@@ -16,8 +16,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/app/models/password.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/entry.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/entry.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/role.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +52,7 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Node.js.swagger">
+  <component name="RunManager" selected="Node.js.server.js">
     <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -71,7 +75,7 @@
       <workItem from="1603832128924" duration="4997000" />
       <workItem from="1603841685962" duration="3568000" />
       <workItem from="1603883295873" duration="1594000" />
-      <workItem from="1603970658404" duration="6745000" />
+      <workItem from="1603970658404" duration="10890000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1603835186931</created>
@@ -94,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603978176241</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added entry model (for store user's passwords)">
+      <created>1603982117101</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603982117101</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,7 +127,8 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="database and server config changed" />
     <MESSAGE value="express-swagger-generator file added" />
-    <option name="LAST_COMMIT_MESSAGE" value="express-swagger-generator file added" />
+    <MESSAGE value="added entry model (for store user's passwords)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added entry model (for store user's passwords)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="714" y="344" key="#Notifications" timestamp="1603893885820">
@@ -135,22 +147,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603977688268" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1603845289693">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1603987224248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1603845289693">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603987224248" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1603987224247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1603845289692">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603987224247" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1603987224247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289692" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1603845289693">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603987224247" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1603987224248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603845289693" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603987224248" />
     <state x="664" y="222" key="RollbackChangesDialog" timestamp="1603977660012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
