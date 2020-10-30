@@ -1,43 +1,22 @@
-const db = require("../models");
-const config = require("../config/auth.config");
+/*const db = require("../models");
+const config = require("../config/crypt.config");
 const User = db.user;
-const Role = db.role;
+const Role = db.role;*/
+const createNewUser= require('../services/auth.service').createNewUser
+//const Op = db.Sequelize.Op;
 
-const Op = db.Sequelize.Op;
+const jwt = require("jsonwebtoken");
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
 
-exports.signup = (req, res) => {
-  // Save User to Database
-  User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
-  })
-    .then(user => {
-      if (req.body.roles) {
-        Role.findAll({
-          where: {
-            name: {
-              [Op.or]: req.body.roles
-            }
-          }
-        }).then(roles => {
-          user.setRoles(roles).then(() => {
-            res.send({ message: "User registered successfully!" });
-          });
-        });
-      } else {
-        // user role = 1
-        user.setRoles([1]).then(() => {
-          res.send({ message: "User registered successfully!" });
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
+
+
+exports.signup = async (req, res) => {
+    try {
+        await createNewUser(req.body)
+        res.send({ message: "User registered successfully!" });
+    }catch (e) {
+        res.status(500).send({message: e.message,});
+    }
 };
 
 exports.signin = (req, res) => {
@@ -51,7 +30,7 @@ exports.signin = (req, res) => {
         return res.status(404).send({ message: "User Not found." });
       }
 
-      var passwordIsValid = bcrypt.compareSync(
+      var passwordIsValid = crypto.compareSync(
         req.body.password,
         user.password
       );
@@ -85,3 +64,36 @@ exports.signin = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+
+
+
+/*
+User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: crypto.hashSync(req.body.password, 8)
+})
+    .then(user => {
+        if (req.body.roles) {
+            Role.findAll({
+                where: {
+                    name: {
+                        [Op.or]: req.body.roles
+                    }
+                }
+            }).then(roles => {
+                user.setRoles(roles).then(() => {
+                    res.send({ message: "User registered successfully!" });
+                });
+            });
+        } else {
+            // user role = 1
+            user.setRoles([1]).then(() => {
+                res.send({ message: "User registered successfully!" });
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).send({ message: err.message });
+    });*/

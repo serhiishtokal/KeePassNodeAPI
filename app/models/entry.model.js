@@ -2,7 +2,8 @@ module.exports = (sequelize, Sequelize) => {
     const Entry = sequelize.define("entries", {
             entry_id: {
                 type: Sequelize.INTEGER,
-                primaryKey: true
+                primaryKey: true,
+                autoIncrement: true
             },
             title: {
                 type: Sequelize.STRING

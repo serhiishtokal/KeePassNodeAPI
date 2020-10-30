@@ -1,6 +1,8 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
 
+
+
 module.exports = function(app) {
   app.use(function(req, res, next) {
     res.header(
@@ -10,11 +12,18 @@ module.exports = function(app) {
     next();
   });
 
+
+  /*const reqb={
+    username: "",
+    email: "",
+    password: "",
+    storeMethod: "SHA512 || HMAC"
+}*/
   app.post(
     "/api/auth/signup",
     [
       verifySignUp.checkDuplicateUsernameOrEmail,
-      verifySignUp.checkRolesExisted
+      // verifySignUp.checkRolesExisted
     ],
     controller.signup
   );
