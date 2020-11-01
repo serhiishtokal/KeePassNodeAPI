@@ -1,4 +1,4 @@
-const { verifySignUp } = require("../middleware");
+const { verifySignUp,verifyReqHelper } = require("../middleware");
 const controller = require("../controllers/auth.controller");
 
 
@@ -22,11 +22,15 @@ module.exports = function(app) {
   app.post(
     "/api/auth/signup",
     [
+      verifyReqHelper.checkInBodyFieldEmpty('username'),
+      verifyReqHelper.checkInBodyFieldEmpty('email'),
+      verifyReqHelper.checkInBodyFieldEmpty('password'),
+      verifyReqHelper.checkInBodyFieldEmpty('storeMethod'),
       verifySignUp.checkDuplicateUsernameOrEmail,
       // verifySignUp.checkRolesExisted
     ],
     controller.signup
   );
-
+//todo: check username or password is empty
   app.post("/api/auth/signin", controller.signin);
 };
