@@ -1,7 +1,7 @@
-isFieldEmpty=(obj,fieldName) => !obj[fieldName];
+const {isObjFieldEmpty}=require('../services').objService
 
 checkInBodyFieldEmpty=(fieldName)=>(req, res, next)=>{
-    if(isFieldEmpty(req.body,fieldName)){
+    if(isObjFieldEmpty(req.body,fieldName)){
        return  res.status(400).send({
             message: `Failed! '${fieldName}' is empty!`
         });
@@ -9,6 +9,6 @@ checkInBodyFieldEmpty=(fieldName)=>(req, res, next)=>{
     next();
 };
 
-
-
-module.exports={checkInBodyFieldEmpty}
+module.exports={
+    checkInBodyFieldEmpty
+}

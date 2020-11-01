@@ -1,14 +1,12 @@
-const cryptService=require('../services/crypt.service')
+const {genHash,genSalt}=require('../services/crypt.service')
 const db = require("../models");
 const User = db.user;
 
 createNewUser= async (user)=>{
-    // if(!isUserUnique(user.username))
-    //     throw {message: "User already exist", code: 409}
-
-    const salt = await cryptService.genSalt(16);
-    const isPassKeptAsSHA=user.storeMethod==='SHA512';
+    const salt = await genSalt(16);
+    const isPassKeptAsSHA=!user.storeMethod||user.storeMethod==='SHA512';
     const passHash= await genHash(isPassKeptAsSHA)(user.password,salt)
+
     await User.create({
         username: user.username,
         email: user.email,
@@ -20,20 +18,31 @@ createNewUser= async (user)=>{
     });
 }
 
-genHash=(isSHA)=>{
-     if(isSHA){
-         return  (password,salt)=>cryptService.genHashSHA512(password, salt)
-     }else {
-         return  (password,key)=>cryptService.genHMAC(password, key)
-     }
+isPasswordCorrect=async (username,password)=>{
+    const user=await User.findOne({where: {username}})
+    const passHash= await genHash(user.isPassKeptAsSHA)(password,user.salt_keyHMAC)
+    return passHash===user.pass_SHA_HMAC
 }
 
-
-function isUserUnique (username) {
-    return User.count({ where: { username: username } })
-        .then(count => {
-            return count === 0;
-        });
+isDuplicateRecord = async (DbModel, dbFieldName, fieldValue) => {
+    const count = await DbModel.count({
+        where: {
+            [dbFieldName]: fieldValue
+        }
+    })
+    return count !== 0
 }
 
-module.exports={createNewUser}
+isUsernameExist= async (username)=>{
+     return await isDuplicateRecord(User,'username',username)
+}
+
+isEmailExist= async (email)=>{
+    return await isDuplicateRecord(User,'email',email)
+}
+
+module.exports={
+    createNewUser,
+    isUsernameExist,
+    isEmailExist
+}

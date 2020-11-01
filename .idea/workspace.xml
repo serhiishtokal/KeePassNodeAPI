@@ -16,10 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="sign up feature added">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/crypt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/crypt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware/authJwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/authJwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/auth.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <workItem from="1604067012813" duration="895000" />
       <workItem from="1604142664809" duration="20537000" />
       <workItem from="1604225251035" duration="3814000" />
-      <workItem from="1604238419257" duration="1618000" />
+      <workItem from="1604238419257" duration="19155000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1603835186931</created>
@@ -167,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604238191159</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added .env import to config file">
+      <created>1604241135998</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604241135998</updated>
+    </task>
+    <task id="LOCAL-00012" summary="database requests moved to services">
+      <created>1604268674464</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1604268674464</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +209,9 @@
     <MESSAGE value="check functions for sign up changed" />
     <MESSAGE value="some bug fixes in middleware methods" />
     <MESSAGE value="added .env file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added .env file" />
+    <MESSAGE value="added .env import to config file" />
+    <MESSAGE value="database requests moved to services" />
+    <option name="LAST_COMMIT_MESSAGE" value="database requests moved to services" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1604003727852">
@@ -211,10 +226,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603843674347" />
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603994967588">
+    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604255901464">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603994967588" />
+    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604255901464" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604238607814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

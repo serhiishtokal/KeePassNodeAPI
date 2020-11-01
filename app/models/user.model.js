@@ -23,6 +23,9 @@ module.exports = (sequelize, Sequelize) => {
     isPassKeptAsSHA: {
       type: Sequelize.STRING
     },
+    refreshToken: {
+      type: Sequelize.STRING
+    }
 
   },
     {

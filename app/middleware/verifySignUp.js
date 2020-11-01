@@ -1,22 +1,21 @@
-const db = require("../models");
-const User = db.user;
+const {isUsernameExist,isEmailExist}=require("../services").authService
 
 checkDuplicateUsernameOrEmail = async (req, res, next) => {
     try {
-        let [isDubUsername, isDubEmail] = await Promise.all(
+        let [isUsername, isEmail] = await Promise.all(
             [
-                isDuplicate(User, 'username', req.body.username),
-                isDuplicate(User, 'email', req.body.email),
+                isUsernameExist(req.body.username),
+                isEmailExist(req.body.email)
             ]
         )
         let res400 = (fieldName) => {
             return res.status(400).send({message: `Failed! ${fieldName} is already in use!`})
         }
 
-        if (isDubUsername)
+        if (isUsername)
             return res400("Username")
 
-        if (isDubEmail)
+        if (isEmail)
             return res400("Email")
 
         next();
@@ -27,20 +26,5 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
     }
 };
 
-
-isDuplicate = async (DbModel, dbFieldName, fieldValue) => {
-    const count = await DbModel.count({
-        where: {
-            [dbFieldName]: fieldValue
-        }
-    })
-    return count !== 0
-}
-
-
-const verifySignUp = {
-    checkDuplicateUsernameOrEmail
-};
-
-module.exports = verifySignUp;
+module.exports = {checkDuplicateUsernameOrEmail};
 
