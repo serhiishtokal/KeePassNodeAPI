@@ -3,7 +3,7 @@ const User = db.user;
 
 checkDuplicateUsernameOrEmail = async (req, res, next) => {
     try {
-        let [isDubUsername, isDubEmail] = await new Promise.all(
+        let [isDubUsername, isDubEmail] = await Promise.all(
             [
                 isDuplicate(User, 'username', req.body.username),
                 isDuplicate(User, 'email', req.body.email),
