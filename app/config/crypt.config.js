@@ -1,5 +1,10 @@
+const dotenv = require('dotenv');
+dotenv.config();
+const env=process.env
 module.exports = {
-  PEPPER: '$2a$10$4/DIPr7sgdgDMWuwNoycpO',
-  REFRESH_TOKEN_SECRET:'f5f86dd249da42c1e8d3b757e5d3dbfa',
-  ACCESS_TOKEN_SECRET:'be2f38a507e0f8149a8d0b7416ae13e7'
+  PEPPER: env.PEPPER,
+  REFRESH_TOKEN_SECRET: env.REFRESH_TOKEN_SECRET,
+  ACCESS_TOKEN_SECRET: env.ACCESS_TOKEN_SECRET,
+  REFRESH_TOKEN_LIFE:env.REFRESH_TOKEN_LIFE,
+  ACCESS_TOKEN_LIFE:env.ACCESS_TOKEN_LIFE
 };
