@@ -16,9 +16,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="sign up feature added">
+      <change afterPath="$PROJECT_DIR$/app/services/jwt.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/crypt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/crypt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/middleware/verifySignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/verifySignIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/auth.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/auth.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +53,7 @@
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/swagger.js" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -94,7 +99,8 @@
       <workItem from="1604067012813" duration="895000" />
       <workItem from="1604142664809" duration="20537000" />
       <workItem from="1604225251035" duration="3814000" />
-      <workItem from="1604238419257" duration="19155000" />
+      <workItem from="1604238419257" duration="24130000" />
+      <workItem from="1604274398582" duration="2670000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1603835186931</created>
@@ -180,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604268674464</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="database requests moved to services">
+      <created>1604269681496</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1604269681496</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +248,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604238607814" />
+    <state x="540" y="235" key="DBNavigator.DatasetFilterDialog" timestamp="1604275425475">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="235" key="DBNavigator.DatasetFilterDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604275425475" />
+    <state x="490" y="175" width="1183" height="690" key="DBNavigator.ProjectSettingsDialog" timestamp="1604277058883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="175" width="1183" height="690" key="DBNavigator.ProjectSettingsDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604277058883" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604238389068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -245,26 +266,26 @@
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603977688268" />
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604238280309" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1604192516015">
+    <state width="1899" height="243" key="GridCell.Tab.0.bottom" timestamp="1604275297321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604192516015" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1604192516015">
+    <state width="1899" height="243" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604275297321" />
+    <state width="1899" height="243" key="GridCell.Tab.0.center" timestamp="1604275297321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604192516015" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1604192516015">
+    <state width="1899" height="243" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604275297321" />
+    <state width="1899" height="243" key="GridCell.Tab.0.left" timestamp="1604275297320">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604192516015" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1604192516015">
+    <state width="1899" height="243" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604275297320" />
+    <state width="1899" height="243" key="GridCell.Tab.0.right" timestamp="1604275297321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604192516015" />
+    <state width="1899" height="243" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604275297321" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1604192513475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -329,10 +350,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="664" y="222" key="RollbackChangesDialog/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603977660012" />
-    <state x="-1151" y="29" key="SettingsEditor" timestamp="1603894077691">
-      <screen x="-1304" y="0" width="1304" height="768" />
+    <state x="225" y="39" key="SettingsEditor" timestamp="1604274321648">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1151" y="29" key="SettingsEditor/0.0.1920.1040/-1304.0.1304.768@-1304.0.1304.768" timestamp="1603894077691" />
+    <state x="225" y="39" key="SettingsEditor/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604274321648" />
+    <state width="337" height="160" key="TextEditor.refreshToken" timestamp="1604277017700">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="337" height="160" key="TextEditor.refreshToken/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604277017700" />
+    <state width="200" height="160" key="TextEditor.username" timestamp="1604276592896">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="200" height="160" key="TextEditor.username/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604276592896" />
+    <state x="807" y="433" key="VCS.ChangelistChooser" timestamp="1604269635550">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="807" y="433" key="VCS.ChangelistChooser/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604269635550" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603835655358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

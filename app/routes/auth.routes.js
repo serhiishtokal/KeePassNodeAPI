@@ -36,12 +36,13 @@ module.exports = function (app) {
     //     username,
     //     password
     // }
-    // app.post(
-    //     "/api/auth/signin",
-    //     [
-    //         verifyReqHelper.checkInBodyFieldEmpty('username'),
-    //         verifyReqHelper.checkInBodyFieldEmpty('password'),
-    //         verifySignIn.checkUserExist
-    //     ],
-    //     controller.signIn)
+    app.post(
+        "/api/auth/signin",
+        [
+            verifyReqHelper.checkInBodyFieldEmpty('username'),
+            verifyReqHelper.checkInBodyFieldEmpty('password'),
+            verifySignIn.checkUserExist,
+            verifySignIn.checkUserPassword
+        ],
+        controller.signIn)
 }

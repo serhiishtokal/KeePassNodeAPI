@@ -41,8 +41,23 @@ isEmailExist= async (email)=>{
     return await isDuplicateRecord(User,'email',email)
 }
 
+addTokenForUser = async (username, refreshToken)=>{
+    try {
+        const result = await User.update(
+            { refreshToken },
+            { where: { username } }
+        )
+        return true
+    } catch (err) {
+        console.log("Add refresh token for user failed!", err)
+        throw new Error(err)
+    }
+}
+
 module.exports={
     createNewUser,
     isUsernameExist,
-    isEmailExist
+    isEmailExist,
+    isPasswordCorrect,
+    addTokenForUser
 }

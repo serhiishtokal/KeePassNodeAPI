@@ -1,4 +1,5 @@
-const createNewUser= require('../services/auth.service').createNewUser
+const {createNewUser,addTokenForUser}= require('../services').authService
+const {createAccessToken,createRefreshToken}=require("../services").jwtService
 
 signUp = async (req, res) => {
     try {
@@ -9,8 +10,31 @@ signUp = async (req, res) => {
     }
 };
 
+signIn=async (req, res)=>{
+    const {username}=req.body
+
+    const payload = {username}
+
+    //create the access token with the shorter lifespan
+    const accessToken = createAccessToken(payload)
+
+    //create the refresh token with the longer lifespan
+    const refreshToken = createRefreshToken(payload)
+
+    try {
+        await addTokenForUser(username,refreshToken)
+    }
+    catch (err){
+        res.status(500).send({message: err.message,});
+    }
+    //send the access token to the client inside a cookie
+    res.cookie("jwt", accessToken, {/*secure: true,*/ httpOnly: true})
+    res.send("Successfully signed in!")
+}
+
 module.exports={
-    signUp
+    signUp,
+    signIn
 }
 
 // signIn = (req, res) => {

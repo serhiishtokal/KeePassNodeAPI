@@ -1,4 +1,4 @@
-const {isUsernameExist}=require("../services").authService
+const {isUsernameExist,isPasswordCorrect}=require("../services").authService
 
 checkUserExist= async (req,res,next)=>{
     try{
@@ -17,9 +17,16 @@ checkUserExist= async (req,res,next)=>{
 }
 
 checkUserPassword=async (req,res,next)=>{
+    const {username, password}=req.body
+    const isPassCorrect= await isPasswordCorrect(username,password)
 
-
+    if(!isPassCorrect){
+        return res.status(401).send({message: `Failed! Incorrect password!`})
+    }
+    next()
 }
 
-
-module.exports={checkUserExist}
+module.exports={
+    checkUserExist,
+    checkUserPassword
+}
