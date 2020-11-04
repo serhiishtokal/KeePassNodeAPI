@@ -1,4 +1,4 @@
-const {createNewUser,addTokenForUser,deleteRefreshToken}= require('../services').authService
+const {createNewUser,addTokenForUser,deleteRefreshToken,isRefreshToken}= require('../services').authService
 const {createAccessToken,createRefreshToken,getAccessTokenPayload}=require("../services").jwtService
 
 signUp = async (req, res) => {
@@ -36,11 +36,8 @@ signIn=async (req, res)=>{
 signOut=async (req, res)=>{
 
     const username=req.username
-
-
     //delete refresh token from DB
     await deleteRefreshToken(username)
-
     //add access token to blocklist?
     //delete access token and refresh token from cookies
     res.clearCookie("accessToken");
@@ -48,8 +45,34 @@ signOut=async (req, res)=>{
     res.send({message:"Successfully signed out!"})
 }
 
+refreshAccessToken=async (req, res)=>{
+
+    const username=req.username
+    const refreshToken=req.refreshToken
+    //check refresh token in DB
+    try {
+        const isValidRefreshToken= await isRefreshToken(username,refreshToken)
+        if(!isValidRefreshToken){
+            return res.status(403).send("Forbidden! Wrong refresh token")
+        }
+    }catch (err) {
+        res.status(500).json({error: err});
+    }
+
+
+    const payload = {username}
+    const accessToken = createAccessToken(payload)
+
+
+    res.cookie("accessToken", accessToken, {/*secure: true,*/ httpOnly: true})
+    res.send({message:"Access token successfully refreshed!"})
+}
+
+
+
 module.exports={
     signUp,
     signIn,
-    signOut
+    signOut,
+    refreshAccessToken
 }

@@ -49,12 +49,26 @@ module.exports = function (app) {
     app.post(
         "/api/auth/signout",
         [
-            verifyAuthJWT.verifyToken
+            verifyAuthJWT.verifyAccessToken
         ],
         controller.signOut
     )
 
+    app.post(
+        "/api/auth/signout",
+        [
+            verifyAuthJWT.verifyAccessToken
+        ],
+        controller.signOut
+    )
 
+    app.post(
+        "/api/auth/refresh",
+        [
+            verifyAuthJWT.verifyRefreshToken
+        ],
+        controller.refreshAccessToken
+    )
 
 
 }

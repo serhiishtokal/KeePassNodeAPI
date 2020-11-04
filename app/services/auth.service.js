@@ -63,6 +63,21 @@ deleteRefreshToken=async (username)=>{
     }
 }
 
+isRefreshToken=async (username, refreshToken)=>{
+    try {
+        const count = await User.count({
+            where: {
+                username: username,
+                refreshToken:refreshToken
+            }
+        })
+        return count !== 0
+    }catch (err) {
+        console.log(`Reading refresh token for user ${username} failed!`, err)
+        throw new Error(err)
+    }
+}
+
 
 module.exports={
     createNewUser,
@@ -70,5 +85,6 @@ module.exports={
     isEmailExist,
     isPasswordCorrect,
     addTokenForUser,
-    deleteRefreshToken
+    deleteRefreshToken,
+    isRefreshToken
 }

@@ -1,7 +1,6 @@
+const {getAccessTokenPayload,getRefreshTokenPayload} = require("../services/jwt.service");
 
-const {getAccessTokenPayload} = require("../services/jwt.service");
-
-verifyToken = (req, res, next) => {
+verifyAccessToken = (req, res, next) => {
 
   const accessToken=req.cookies.accessToken;
   if(!accessToken)
@@ -19,7 +18,28 @@ verifyToken = (req, res, next) => {
   next()
 };
 
+
+verifyRefreshToken = (req, res, next) => {
+
+  const refreshToken=req.cookies.refreshToken;
+  if(!refreshToken)
+  {
+    return res.status(403).send("Forbidden! Wrong refresh token")
+  }
+  //validate access token
+  let payload
+  try {
+    payload=getRefreshTokenPayload(refreshToken)
+  }catch (e){
+    return res.status(403).send("Forbidden! Wrong refresh token")
+  }
+  req.username=payload.username
+  req.refreshToken=refreshToken
+  next()
+};
+
 const verifyAuthJwt = {
-  verifyToken: verifyToken,
+  verifyAccessToken: verifyAccessToken,
+  verifyRefreshToken
 }
 module.exports = verifyAuthJwt
