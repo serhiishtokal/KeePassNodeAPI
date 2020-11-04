@@ -41,21 +41,3 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-/*
-function initial() {
-  Role.create({
-    role_id: 1,
-    name: "user"
-  });
- 
-  Role.create({
-    role_id: 2,
-    name: "moderator"
-  });
- 
-  Role.create({
-    role_id: 3,
-    name: "admin"
-  });
-}*/
