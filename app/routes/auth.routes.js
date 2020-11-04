@@ -1,4 +1,4 @@
-const {verifySignUp, verifyReqHelper, verifySignIn} = require("../middleware");
+const {verifySignUp, verifyReqHelper, verifySignIn, verifyAuthJWT} = require("../middleware");
 const controller = require("../controllers/auth.controller");
 
 
@@ -10,7 +10,6 @@ module.exports = function (app) {
         )
         next()
     })
-
 
     /*const reqb={
       username: "",
@@ -44,5 +43,18 @@ module.exports = function (app) {
             verifySignIn.checkUserExist,
             verifySignIn.checkUserPassword
         ],
-        controller.signIn)
+        controller.signIn
+    )
+
+    app.post(
+        "/api/auth/signout",
+        [
+            verifyAuthJWT.verifyToken
+        ],
+        controller.signOut
+    )
+
+
+
+
 }

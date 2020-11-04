@@ -43,21 +43,32 @@ isEmailExist= async (email)=>{
 
 addTokenForUser = async (username, refreshToken)=>{
     try {
-        const result = await User.update(
+        await User.update(
             { refreshToken },
             { where: { username } }
-        )
+        );
         return true
     } catch (err) {
-        console.log("Add refresh token for user failed!", err)
+        console.log(`Update refresh token for user ${username} failed!`, err)
         throw new Error(err)
     }
 }
+
+deleteRefreshToken=async (username)=>{
+    try {
+        await addTokenForUser(username,null)
+    } catch (err) {
+        console.log(`Delete refresh token for user ${username} failed!`, err)
+        throw new Error(err)
+    }
+}
+
 
 module.exports={
     createNewUser,
     isUsernameExist,
     isEmailExist,
     isPasswordCorrect,
-    addTokenForUser
+    addTokenForUser,
+    deleteRefreshToken
 }

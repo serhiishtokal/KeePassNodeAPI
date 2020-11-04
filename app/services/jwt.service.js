@@ -21,9 +21,46 @@ createRefreshToken=(payload)=>{
     })
 }
 
+getPayload=(token,tokenSecret)=>{
+    try {
+        console.log(tokenSecret)
+        console.log(token)
+        // Parse the JWT string and store the result in `payload`.
+        // Note that we are passing the key in this method as well. This method will throw an error
+        // if the token is invalid (if it has expired according to the expiry time we set on sign in),
+        // or if the signature does not match
+        const payload = jwt.verify(token, tokenSecret)
+        return payload
+    } catch (e) {
+        console.log("Wrong token ", token)
+        throw new Error(e)
+    }
+}
+
+getAccessTokenPayload= (accessToken)=>{
+    return getPayload(accessToken, ACCESS_TOKEN_SECRET)
+}
+
+getRefreshTokenPayload=(refreshToken)=>{
+    return getPayload(refreshToken, REFRESH_TOKEN_SECRET)
+}
+
+
+/*const token=jwt.sign({name:"aaaa"}, "qwerty", {
+    algorithm: "HS256",
+    expiresIn: "300s"
+})
+
+try{
+    const payload=getPayload(token,"qwerty")
+}catch (e){
+    console.log(e)
+}*/
 
 
 module.exports={
     createAccessToken,
-    createRefreshToken
+    createRefreshToken,
+    getAccessTokenPayload,
+    getRefreshTokenPayload
 }

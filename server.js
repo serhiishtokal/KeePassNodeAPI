@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser')
+
 const cors = require("cors");
 
 const app = express();
@@ -7,7 +9,7 @@ const app = express();
 const corsOptions = {
   origin: "http://localhost:8082"
 };
-
+app.use(cookieParser())
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
