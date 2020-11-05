@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
             title: {
                 type: Sequelize.STRING
             },
+            email: {
+                type: Sequelize.STRING
+            },
             username: {
                 type: Sequelize.STRING
             },
@@ -21,6 +24,9 @@ module.exports = (sequelize, Sequelize) => {
             description: {
                 type: Sequelize.STRING
             },
+            cryptInitVector: {
+                type: Sequelize.STRING
+            }
         },
         {
             timestamps: true

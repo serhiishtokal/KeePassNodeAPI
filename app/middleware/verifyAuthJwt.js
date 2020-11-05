@@ -14,7 +14,8 @@ verifyAccessToken = (req, res, next) => {
   }catch (e){
     return res.status(400).send("Wrong token")
   }
-  req.username=payload.username
+  req.body.masterUsername=payload.username
+  req.body.masterUserId=payload.userId
   next()
 };
 

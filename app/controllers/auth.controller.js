@@ -1,5 +1,6 @@
 const {createNewUser,addTokenForUser,deleteRefreshToken,isRefreshToken}= require('../services').authService
-const {createAccessToken,createRefreshToken,getAccessTokenPayload}=require("../services").jwtService
+const {createAccessToken,createRefreshToken}=require("../services").jwtService
+const {getUserId}=require("../services").userService
 
 signUp = async (req, res) => {
     try {
@@ -12,8 +13,9 @@ signUp = async (req, res) => {
 
 signIn=async (req, res)=>{
     const {username}=req.body
+    const userId= await getUserId(username)
+    const payload = {username,userId}
 
-    const payload = {username}
 
     //create the access token with the shorter lifespan
     const accessToken = createAccessToken(payload)

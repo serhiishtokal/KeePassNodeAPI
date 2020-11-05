@@ -8,7 +8,17 @@ checkInBodyFieldEmpty=(fieldName)=>(req, res, next)=>{
     }
     next();
 };
+checkInBodyObjFieldEmpty=(objName,inObjFieldName)=>(req, res, next)=>{
+    if(isObjFieldEmpty(req.body[objName],inObjFieldName)){
+        return  res.status(400).send({
+            message: `Failed! '${inObjFieldName}' is empty!`
+        });
+    }
+    next();
+};
+
 
 module.exports={
-    checkInBodyFieldEmpty
+    checkInBodyFieldEmpty,
+    checkInBodyObjFieldEmpty
 }
