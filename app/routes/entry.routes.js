@@ -29,7 +29,7 @@ module.exports = function (app) {
     )
 
     app.post(
-        "/api/password/getAll",
+        "/api/entry/getAll",
         [
             verifyAuthJWT.verifyAccessToken,
             verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),

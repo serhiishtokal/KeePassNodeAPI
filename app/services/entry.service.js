@@ -39,14 +39,14 @@ try {
 
 }
 
-getAllEntries=async (username)=>{
+getAllEntries=async (userId)=>{
     return await Entry.findAll({
-        include: [{
-            model: User,
-            where: { username: username }
-        }]
+        where:{
+            user_id:userId
+        }
     }).catch(err => {
-        throw { message: err.message , code: 500};
+        console.log(err.message)
+        throw new Error(err.message)
     });
 }
 

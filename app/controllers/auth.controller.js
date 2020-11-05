@@ -49,11 +49,11 @@ signOut=async (req, res)=>{
 
 refreshAccessToken=async (req, res)=>{
 
-    const username=req.username
-    const refreshToken=req.refreshToken
+    const masterUsername=req.body.masterUsername
+    const refreshToken=req.body.refreshToken
     //check refresh token in DB
     try {
-        const isValidRefreshToken= await isRefreshToken(username,refreshToken)
+        const isValidRefreshToken= await isRefreshToken(masterUsername,refreshToken)
         if(!isValidRefreshToken){
             return res.status(403).send("Forbidden! Wrong refresh token")
         }

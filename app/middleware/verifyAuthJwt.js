@@ -34,8 +34,8 @@ verifyRefreshToken = (req, res, next) => {
   }catch (e){
     return res.status(403).send("Forbidden! Wrong refresh token")
   }
-  req.username=payload.username
-  req.refreshToken=refreshToken
+  req.body.masterUsername=payload.username
+  req.body.refreshToken=refreshToken
   next()
 };
 

@@ -26,8 +26,8 @@ addNewEntry=async (req, res)=>{
 }
 //get all entries
 getAllEntries=async (req,res)=>{
-    const masterUsername=req.body.username
-    const entries=entryService.getAllEntries(masterUsername)
+    const masterUserId=req.body.masterUserId
+    const entries= await entryService.getAllEntries(masterUserId)
     res.send({entries})
 }
 

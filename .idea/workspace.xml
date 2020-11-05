@@ -11,25 +11,18 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="593bd671-42db-4edd-b654-6cace8950604" name="Default Changelist" comment="sign up feature added">
-      <change afterPath="$PROJECT_DIR$/app/controllers/entries.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/entry.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/user.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/entries.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/entries.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/middleware/verifyAuthJwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/verifyAuthJwt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware/verifyReqHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/verifyReqHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/entry.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/entry.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/user.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/entry.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/crypt.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/crypt.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/entry.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/entry.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/entry.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/entry.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +113,7 @@
       <workItem from="1604420757987" duration="2481000" />
       <workItem from="1604499711490" duration="14597000" />
       <workItem from="1604524134341" duration="24434000" />
+      <workItem from="1604592077620" duration="4661000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1603835186931</created>
@@ -240,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604526425358</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="&quot;add new entry fr user&quot; endpoint added">
+      <created>1604593542693</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1604593542694</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +256,17 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
@@ -282,7 +294,8 @@
     <MESSAGE value="sign out feature added" />
     <MESSAGE value="refresh token added" />
     <MESSAGE value="refresh token endpoint added" />
-    <option name="LAST_COMMIT_MESSAGE" value="refresh token endpoint added" />
+    <MESSAGE value="&quot;add new entry fr user&quot; endpoint added" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;add new entry fr user&quot; endpoint added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1604003727852">
@@ -328,26 +341,26 @@
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1603977688268" />
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604238280309" />
-    <state width="1899" height="243" key="GridCell.Tab.0.bottom" timestamp="1604548806470">
+    <state width="1899" height="338" key="GridCell.Tab.0.bottom" timestamp="1604596757534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="243" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604548806470" />
-    <state width="1899" height="243" key="GridCell.Tab.0.center" timestamp="1604548806470">
+    <state width="1899" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604596757534" />
+    <state width="1899" height="338" key="GridCell.Tab.0.center" timestamp="1604596757533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="243" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604548806470" />
-    <state width="1899" height="243" key="GridCell.Tab.0.left" timestamp="1604548806470">
+    <state width="1899" height="338" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604596757533" />
+    <state width="1899" height="338" key="GridCell.Tab.0.left" timestamp="1604596757533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="243" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604548806470" />
-    <state width="1899" height="243" key="GridCell.Tab.0.right" timestamp="1604548806470">
+    <state width="1899" height="338" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604596757533" />
+    <state width="1899" height="338" key="GridCell.Tab.0.right" timestamp="1604596757533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1304.0.1304.768@0.0.1920.1040" timestamp="1604049470173" />
-    <state width="1899" height="243" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604548806470" />
+    <state width="1899" height="338" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604596757533" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1604548804387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -433,10 +446,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="807" y="433" key="VCS.ChangelistChooser/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604269635550" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604542503255">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604593555189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604542503255" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1604593555189" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603835655358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
