@@ -16,15 +16,13 @@ addNewEntry=async (req, res)=>{
 
     try {
         const entryId=await entryService.createNewEntry(req.body.entry,masterUserId,masterPassword)
-        res.json({entryId})
+        return res.json({entryId})
     }
     catch (e) {
         console.log(e)
        return  res.status(500).send(e.message);
     }
 
-
-    res.send({message:"Entry added successfully"})
 }
 //get all entries
 getAllEntries=async (req,res)=>{
@@ -36,10 +34,18 @@ getAllEntries=async (req,res)=>{
 
 //get pass by id
 getEncryptedPass=async (req,res)=>{
-    const entryId=req.query.entryId
+    const entryId=req.params.entryId
     const masterPassword=req.body.masterPassword
-    const decryptedPass=await entryService.getDecryptedPass(entryId,masterPassword)
-    res.json({decryptedPass})
+    try{
+        const decryptedPass=await entryService.getDecryptedPass(entryId,masterPassword)
+
+        res.json({decryptedPass})
+    }catch (e) {
+        console.log(e)
+        return  res.status(500).send(e.message);
+    }
+
+
 }
 
 module.exports={

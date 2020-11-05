@@ -1,5 +1,5 @@
 const controller = require("../controllers/entries.controller");
-const {verifyAuthJWT, verifyReqHelper} = require("../middleware");
+const {verifyAuthJWT, verifyReqHelper,verifyAuth} = require("../middleware");
 
 module.exports = function (app) {
     app.use(function (req, res, next) {
@@ -31,20 +31,19 @@ module.exports = function (app) {
     app.get(
         "/api/entry/getAll",
         [
-            verifyAuthJWT.verifyAccessToken,
-            verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),
+            verifyAuthJWT.verifyAccessToken
         ],
         controller.getAllEntries
     )
 
     app.get(
-        "/api/entry/getPassword",
+        "/api/entry/getPassword/:entryId",
         [
             verifyAuthJWT.verifyAccessToken,
             verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),
-            verifyReqHelper.checkInRequestDataExist(['query','entryId'])
+            verifyAuth.checkAccessToPassword
+            //verifyReqHelper.checkInRequestDataExist(['params','entryId'])
         ],
         controller.getEncryptedPass
     )
-
 };

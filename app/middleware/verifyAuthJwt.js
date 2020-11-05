@@ -12,7 +12,7 @@ verifyAccessToken = (req, res, next) => {
   try {
     payload=getAccessTokenPayload(accessToken)
   }catch (e){
-    return res.status(400).send("Wrong token")
+    return res.status(400).send("Wrong access token")
   }
   req.body.masterUsername=payload.username
   req.body.masterUserId=payload.userId

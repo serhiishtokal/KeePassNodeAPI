@@ -61,8 +61,19 @@ getDecryptedPass = async (entryId, masterPassword) => {
     }
 }
 
+hasAccessToPassword=async (userId, entryId)=>{
+    try{
+        const entry = await Entry.findByPk(entryId)
+        return  entry.user_id===userId
+    }catch (e){
+        console.log(e)
+        throw new Error(e.message)
+    }
+}
+
 module.exports = {
     createNewEntry,
     getAllEntries,
-    getDecryptedPass
+    getDecryptedPass,
+    hasAccessToPassword
 }

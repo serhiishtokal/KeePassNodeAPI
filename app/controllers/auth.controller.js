@@ -37,7 +37,7 @@ signIn=async (req, res)=>{
 
 signOut=async (req, res)=>{
 
-    const username=req.username
+    const username=req.body.masterUsername
     //delete refresh token from DB
     await deleteRefreshToken(username)
     //add access token to blocklist?
