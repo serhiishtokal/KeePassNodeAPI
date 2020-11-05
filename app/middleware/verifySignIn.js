@@ -1,32 +1,35 @@
-const {isUsernameExist,isPasswordCorrect}=require("../services").authService
+const {isUsernameExist, isPasswordCorrect} = require("../services").authService
 
-checkUserExist= async (req,res,next)=>{
-    try{
-        const {username}=req.body
-        const isUserExist= await isUsernameExist(username)
-        if(!isUserExist){
-            return res.status(401).send({message: `Failed! User '${username}' not exist!`})
-        }
-        next()
+checkUserExist = async (req, res, next) => {
+
+    const {username} = req.body
+    let isUserExist
+    try {
+        isUserExist = await isUsernameExist(username)
+    } catch (e) {
+        return res.status(500).send(e.message)
     }
-    catch (e) {
-        return res.status(500).send({
-            message: e
-        })
-    }
-}
-
-checkUserPassword=async (req,res,next)=>{
-    const {username, password}=req.body
-    const isPassCorrect= await isPasswordCorrect(username,password)
-
-    if(!isPassCorrect){
-        return res.status(401).send({message: `Failed! Incorrect password!`})
+    if (!isUserExist) {
+        return res.status(401).send({message: `Failed! User '${username}' not exist!`})
     }
     next()
 }
 
-module.exports={
+checkUserPassword = async (req, res, next) => {
+    const {username, password} = req.body
+    try {
+        const isPassCorrect = await isPasswordCorrect(username, password)
+
+        if (!isPassCorrect) {
+            return res.status(401).send(`Failed! Incorrect password!`)
+        }
+        next()
+    } catch (e) {
+        return res.status(500).send(e.message)
+    }
+}
+
+module.exports = {
     checkUserExist,
     checkUserPassword
 }

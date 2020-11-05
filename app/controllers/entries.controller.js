@@ -15,10 +15,12 @@ addNewEntry=async (req, res)=>{
     const masterPassword=req.body.masterPassword
 
     try {
-        await entryService.createNewEntry(req.body.entry,masterUserId,masterPassword)
+        const entryId=await entryService.createNewEntry(req.body.entry,masterUserId,masterPassword)
+        res.json({entryId})
     }
-    catch (err) {
-       return  res.status(500).send({error: err});
+    catch (e) {
+        console.log(e)
+       return  res.status(500).send(e.message);
     }
 
 
@@ -33,9 +35,16 @@ getAllEntries=async (req,res)=>{
 
 
 //get pass by id
+getEncryptedPass=async (req,res)=>{
+    const entryId=req.query.entryId
+    const masterPassword=req.body.masterPassword
+    const decryptedPass=await entryService.getDecryptedPass(entryId,masterPassword)
+    res.json({decryptedPass})
+}
 
 module.exports={
     addNewEntry,
-    getAllEntries
+    getAllEntries,
+    getEncryptedPass
 }
 //

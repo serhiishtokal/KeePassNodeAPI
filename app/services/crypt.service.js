@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 const cryptConfig = require("../config/crypt.config")
-
+const algorithm = 'aes-256-ctr';
 
 genSalt = async (saltRounds)=> await crypto.randomBytes(saltRounds).toString('hex');
 
@@ -23,42 +23,36 @@ genHash=(isSHA)=>{
 genMD5=(data)=>{
     return crypto.createHash('md5').update(data).digest("hex");
 }
-//todo: transform master Password To MD5 on middleware layer
 
-
-encryptAES=async (data,keyPassword,cryptInitVector)=>{
-    const key= crypto.scryptSync(keyPassword, 'salt', 24)
-    const cipher = crypto.createCipheriv('aes-192-cbc', key,cryptInitVector);
-    let encrypted=  cipher.update(data,'utf8', 'hex');
-    encrypted+=cipher.final('hex')
-    return encrypted
+encryptAES=async (content,secretKey)=>{
+    const iv = crypto.randomBytes(16);
+    const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
+    const encrypted = Buffer.concat([cipher.update(content), cipher.final()]);
+    return {
+        iv: iv.toString('hex'),
+        content: encrypted.toString('hex')
+    };
 }
-decryptAES=async (data,keyPassword,cryptInitVector)=>{
-    const key=await crypto.scryptSync(keyPassword, 'salt', 24)
-    const decipher = crypto.createDecipheriv('aes-192-cbc', key, cryptInitVector);
-    let decrypted = decipher.update(data, 'hex', 'utf8');
-    decrypted += decipher.final('hex')
-    return decrypted
+decryptAES=async (content,secretKey,iv)=>{
+    const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(iv, 'hex'));
+    const decrypted = Buffer.concat([decipher.update(Buffer.from(content, 'hex')), decipher.final()]);
+    return decrypted.toString();
 }
 
-getEncryptedPass=async (passwordToEncrypt, masterPassword, cryptInitVector) => {
-    const md5Hash = genMD5(masterPassword)
-    return await encryptAES(passwordToEncrypt, md5Hash, cryptInitVector)
+encrypt=async (stringToEncrypt, passString) => {
+    const md5Hash = genMD5(passString)
+    return await encryptAES(stringToEncrypt, md5Hash)
 }
 
-getDecryptedPass=async (passwordToDecrypt,masterPassword,cryptInitVector)=>{
-    const md5Hash=genMD5(masterPassword);
-    return await decryptAES(passwordToDecrypt,md5Hash,cryptInitVector)
+decrypt=async (stringToDecrypt, passString, iv)=>{
+    const md5Hash=genMD5(passString);
+    return await decryptAES(stringToDecrypt,md5Hash, iv)
 }
 
-genInitialVector=async ()=>{
-    return crypto.randomFillSync(new Uint8Array(16));
-}
 
 module.exports={
     genSalt,
     genHash,
-    getEncryptedPass,
-    getDecryptedPass,
-    genInitialVector
+    encrypt,
+    decrypt
 }

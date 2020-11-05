@@ -28,13 +28,23 @@ module.exports = function (app) {
         controller.addNewEntry
     )
 
-    app.post(
+    app.get(
         "/api/entry/getAll",
         [
             verifyAuthJWT.verifyAccessToken,
             verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),
         ],
         controller.getAllEntries
+    )
+
+    app.get(
+        "/api/entry/getPassword",
+        [
+            verifyAuthJWT.verifyAccessToken,
+            verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),
+            verifyReqHelper.checkInRequestDataExist(['query','entryId'])
+        ],
+        controller.getEncryptedPass
     )
 
 };
