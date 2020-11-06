@@ -25,6 +25,7 @@ checkUserPassword = async (req, res, next) => {
         }
         next()
     } catch (e) {
+        console.log(e)
         return res.status(500).send(e.message)
     }
 }

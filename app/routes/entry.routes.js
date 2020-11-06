@@ -41,7 +41,7 @@ module.exports = function (app) {
         [
             verifyAuthJWT.verifyAccessToken,
             verifyReqHelper.checkInBodyFieldEmpty('masterPassword'),
-            verifyAuth.checkAccessToPassword
+            verifyAuth.checkAccessToEntry
             //verifyReqHelper.checkInRequestDataExist(['params','entryId'])
         ],
         controller.getEncryptedPass

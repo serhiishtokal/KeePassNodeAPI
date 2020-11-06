@@ -36,12 +36,13 @@ createNewEntry = async (entry, masterUserId, masterPassword) => {
 
 }
 
-getAllEntries = async (userId) => {
+getAllEntries = async (userId,attributes=null) => {
     try{
         return await Entry.findAll({
             where: {
                 user_id: userId
-            }
+            },
+            attributes
         })
     }catch (e) {
         console.log(e)
