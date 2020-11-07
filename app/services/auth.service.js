@@ -20,7 +20,7 @@ createNewUser= async (user)=>{
 
 isPasswordCorrect=async (username,password)=>{
     const user=await User.findOne({where: {username}})
-    const passHash= await genHash(user.isPassKeptAsSHA)(password,user.salt_keyHMAC)
+    const passHash= await genHash(Number(user.isPassKeptAsSHA))(password,user.salt_keyHMAC)
     return passHash===user.pass_SHA_HMAC
 }
 
